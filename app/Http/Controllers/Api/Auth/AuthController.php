@@ -15,9 +15,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    public function register(RegisterRequest $request){
-        try{
-            DB::beginTransaction();
+    public function register(RegisterRequest $request)
+    {
+        try {
             $request['password'] = Hash::make($request['password']);
             $request['remember_token'] = Str::random(10);
             $user = User::create($request->toArray());
@@ -26,10 +26,9 @@ class AuthController extends Controller
                 'token' => $token,
                 'user' => $user,
             ];
-            DB::commit();
-            return sendResponse('User Register successfully',$response,Response::HTTP_OK);
-        }catch (\Exception $exception) {
-            DB::rollBack();
+            return sendResponse('User Register successfully', $response, Response::HTTP_OK);
+        } catch (\Exception $exception) {
+
             return sendError(
                 'something went wrong',
                 [
@@ -40,14 +39,14 @@ class AuthController extends Controller
                 Response::HTTP_INTERNAL_SERVER_ERROR
             );
         }
-
     }
-    public function login(LoginRequest $request){
+    public function login(LoginRequest $request)
+    {
         $data = [
             'email' => $request->email,
             'password' => $request->password
         ];
-        if (auth()->guard('api')->attempt($data)){
+        if (auth()->guard('api')->attempt($data)) {
             $user = Auth::guard('api')->user();
             $response = [
                 'token' => JWTAuth::fromUser($user),
@@ -58,18 +57,18 @@ class AuthController extends Controller
                 $response,
                 Response::HTTP_OK
             );
-        }else{
+        } else {
             return sendError(
                 'Credentials not match.',
                 [],
                 404
             );
         }
-
     }
-    public function logout(){
+    public function logout()
+    {
         $user = Auth::guard('api')->user();
         auth()->guard('api')->logout();
-        return sendResponse('Logout successfully',[],Response::HTTP_OK);
+        return sendResponse('Logout successfully', [], Response::HTTP_OK);
     }
 }
