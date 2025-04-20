@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('appoinments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('guest_id');
+            $table->unsignedBigInteger('avaiability_id');
+            $table->date('date');
+            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->longText('notes')->nullable();
             $table->timestamps();
+
+            $table->foreign('guest_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('avaiability_id')->references('id')->on('avaiabilities')->onDelete('cascade');
+            $table->index(['guest_id', 'avaiability_id', 'date']);
         });
     }
 
