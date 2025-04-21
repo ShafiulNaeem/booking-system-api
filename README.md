@@ -35,5 +35,6 @@
             php artisan test
         ```
     - or Run Specific Test ``` php artisan test --filter=your_test_function```
+- [Api info and postman collection] (https://github.com/ShafiulNaeem/booking-system-api/blob/master/booking%20system.postman_collection.json) 
 
 
