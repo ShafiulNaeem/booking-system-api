@@ -1,0 +1,1101 @@
+{
+	"info": {
+		"_postman_id": "42026385-9527-4e9e-ac34-4b39759b9fe2",
+		"name": "booking system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13981486"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "guest@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "### Login Endpoint\n\nThis endpoint allows users to log in and receive an authentication token.\n\n#### Request Body Parameters\n\n- `email` (text): The email address of the user.\n    \n- `password` (text): The password of the user.\n    \n\n#### Response\n\nThe response will be a JSON object with the following properties:\n\n- `code` (number): The status code of the response.\n    \n- `success` (boolean): Indicates if the request was successful.\n    \n- `message` (string): A message related to the request.\n    \n- `data` (object): An object containing token and user information.\n    \n    - `token` (string): The authentication token for the user.\n        \n    - `user` (object): An object containing user details.\n        \n        - `id` (number): The user's ID.\n            \n        - `name` (string): The user's name.\n            \n        - `email` (string): The user's email address.\n            \n        - `role` (string): The user's role.\n            \n        - `email_verified_at` (string): The date and time when the user's email was verified.\n            \n        - `created_at` (string): The date and time when the user account was created.\n            \n        - `updated_at` (string): The date and time when the user account was last updated.\n            \n- `errors` (array): An array containing any errors encountered during the request.\n    \n\n#### JSON Schema for Response\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": { \"type\": \"number\" },\n    \"success\": { \"type\": \"boolean\" },\n    \"message\": { \"type\": \"string\" },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"token\": { \"type\": \"string\" },\n        \"user\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": { \"type\": \"number\" },\n            \"name\": { \"type\": \"string\" },\n            \"email\": { \"type\": \"string\" },\n            \"role\": { \"type\": \"string\" },\n            \"email_verified_at\": { \"type\": \"string\" },\n            \"created_at\": { \"type\": \"string\" },\n            \"updated_at\": { \"type\": \"string\" }\n          }\n        }\n      }\n    },\n    \"errors\": {\n      \"type\": \"array\",\n      \"items\": {}\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "LOGIN",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "host@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 20 Apr 2025 11:40:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"success\": true,\n    \"message\": \"Login successfully.\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzQ1MTQ5MjM0LCJleHAiOjE3NDUxNTI4MzQsIm5iZiI6MTc0NTE0OTIzNCwianRpIjoiT3ViQmpxWElDWHVWQlhiSiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.30DDLtcKGwgB6L_qnzi_B1tuRU9BTKmKQ0ZLHiYFsQs\",\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Host User\",\n            \"email\": \"host@example.com\",\n            \"role\": \"host\",\n            \"email_verified_at\": \"2025-04-20T09:16:56.000000Z\",\n            \"created_at\": \"2025-04-20T09:16:56.000000Z\",\n            \"updated_at\": \"2025-04-20T09:16:56.000000Z\"\n        }\n    },\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  // name: required|string|max:255\r\n  \"name\": \"Jane Doe d\",\r\n\r\n  // email: required|email|unique:users,email\r\n  \"email\": \"jdfanedoedf@example.com\",\r\n\r\n  // password: required|string|min:8|confirmed\r\n  \"password\": \"securePass123\",\r\n\r\n  // password_confirmation: required|string|min:8\r\n  \"password_confirmation\": \"securePass123\",\r\n\r\n  // role: required|in:host,guest\r\n  \"role\": \"guest\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						},
+						"description": "### Register User\n\nThis endpoint allows the client to register a new user with the provided information.\n\n#### Request Body\n\n- `name` (string) - The name of the user.\n    \n- `email` (string) - The email address of the user.\n    \n- `password` (string) - The password for the user account.\n    \n- `password_confirmation` (string) - Confirmation of the password.\n    \n- `role` (string) - The role of the user.\n    \n\n#### Response\n\nThe response is in JSON format and follows the schema below:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"token\": {\n          \"type\": \"string\"\n        },\n        \"user\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"name\": {\n              \"type\": \"string\"\n            },\n            \"email\": {\n              \"type\": \"string\"\n            },\n            \"role\": {\n              \"type\": \"string\"\n            },\n            \"updated_at\": {\n              \"type\": \"string\"\n            },\n            \"created_at\": {\n              \"type\": \"string\"\n            },\n            \"id\": {\n              \"type\": \"integer\"\n            }\n          }\n        }\n      }\n    },\n    \"errors\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  // name: required|string|max:255\r\n  \"name\": \"Jane Doe d\",\r\n\r\n  // email: required|email|unique:users,email\r\n  \"email\": \"jdfanedoedf@example.com\",\r\n\r\n  // password: required|string|min:8|confirmed\r\n  \"password\": \"securePass123\",\r\n\r\n  // password_confirmation: required|string|min:8\r\n  \"password_confirmation\": \"securePass123\",\r\n\r\n  // role: required|in:host,guest\r\n  \"role\": \"guest\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 04:09:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"success\": true,\n    \"message\": \"User Register successfully\",\n    \"data\": {\n        \"name\": \"Jane Doe d\",\n        \"email\": \"jdfanedoedf@example.com\",\n        \"role\": \"guest\",\n        \"updated_at\": \"2025-04-21T04:09:44.000000Z\",\n        \"created_at\": \"2025-04-21T04:09:44.000000Z\",\n        \"id\": 5\n    },\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logout"
+							]
+						},
+						"description": "### Register User\n\nThis endpoint allows the client to register a new user with the provided information.\n\n#### Request Body\n\n- `name` (string) - The name of the user.\n    \n- `email` (string) - The email address of the user.\n    \n- `password` (string) - The password for the user account.\n    \n- `password_confirmation` (string) - Confirmation of the password.\n    \n- `role` (string) - The role of the user.\n    \n\n#### Response\n\nThe response is in JSON format and follows the schema below:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"token\": {\n          \"type\": \"string\"\n        },\n        \"user\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"name\": {\n              \"type\": \"string\"\n            },\n            \"email\": {\n              \"type\": \"string\"\n            },\n            \"role\": {\n              \"type\": \"string\"\n            },\n            \"updated_at\": {\n              \"type\": \"string\"\n            },\n            \"created_at\": {\n              \"type\": \"string\"\n            },\n            \"id\": {\n              \"type\": \"integer\"\n            }\n          }\n        }\n      }\n    },\n    \"errors\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/logout",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 20 Apr 2025 12:15:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": [],\n    \"errors\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "availability",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"weekday\": \"Sunday\",          // Must be one of the valid weekdays (Monday to Sunday)\r\n  \"start_time\": \"08:00\",        // Required and must be in HH:MM (24-hour) format\r\n  \"end_time\": \"09:00\",          // Required, must be in HH:MM format, and after start_time\r\n  \"time_zone\": \"Asia/Dhaka\" // Required and must be a valid timezone identifier\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/availability",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"availability"
+							]
+						},
+						"description": "### Add Availability\n\nThis endpoint allows the user to add their availability for a specific weekday and time range.\n\n#### Request Body\n\n- `weekday` (string): The day of the week for which the availability is being added.\n    \n- `start_time` (string): The start time of the availability in 24-hour format.\n    \n- `end_time` (string): The end time of the availability in 24-hour format.\n    \n- `time_zone` (string): The time zone in which the availability is being specified.\n    \n\nExample:\n\n``` json\n{\n    \"weekday\": \"Monday\",\n    \"start_time\": \"15:00\",\n    \"end_time\": \"23:00\",\n    \"time_zone\": \"Asia/Dhaka\"\n}\n\n ```\n\n#### Response\n\n- Status: 201 Created\n    \n- Content-Type: application/json\n    \n\nExample Response Body:\n\n``` json\n{\n    \"code\": 0,\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"headers\": {},\n        \"original\": {\n            \"code\": 0,\n            \"success\": true,\n            \"message\": \"\",\n            \"data\": [],\n            \"errors\": {\n                \"error\": \"\"\n            }\n        },\n        \"exception\": null\n    },\n    \"errors\": []\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"weekday\": \"Monday\",          // Must be one of the valid weekdays (Monday to Sunday)\r\n  \"start_time\": \"06:00\",        // Required and must be in HH:MM (24-hour) format\r\n  \"end_time\": \"07:00\",          // Required, must be in HH:MM format, and after start_time\r\n  \"time_zone\": \"Asia/Dhaka\" // Required and must be a valid timezone identifier\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/availability",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"availability"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 20 Apr 2025 15:08:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"success\": true,\n    \"message\": \"Availability created successfully\",\n    \"data\": {\n        \"weekday\": \"Monday\",\n        \"start_time\": \"06:00\",\n        \"end_time\": \"07:00\",\n        \"time_zone\": \"Asia/Dhaka\",\n        \"host_id\": 1,\n        \"updated_at\": \"2025-04-20T15:08:21.000000Z\",\n        \"created_at\": \"2025-04-20T15:08:21.000000Z\",\n        \"id\": 7\n    },\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "availability/host_id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/availability/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"availability",
+								"1"
+							]
+						},
+						"description": "### Add Availability\n\nThis endpoint allows the user to add their availability for a specific weekday and time range.\n\n#### Request Body\n\n- `weekday` (string): The day of the week for which the availability is being added.\n    \n- `start_time` (string): The start time of the availability in 24-hour format.\n    \n- `end_time` (string): The end time of the availability in 24-hour format.\n    \n- `time_zone` (string): The time zone in which the availability is being specified.\n    \n\nExample:\n\n``` json\n{\n    \"weekday\": \"Monday\",\n    \"start_time\": \"15:00\",\n    \"end_time\": \"23:00\",\n    \"time_zone\": \"Asia/Dhaka\"\n}\n\n ```\n\n#### Response\n\n- Status: 201 Created\n    \n- Content-Type: application/json\n    \n\nExample Response Body:\n\n``` json\n{\n    \"code\": 0,\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"headers\": {},\n        \"original\": {\n            \"code\": 0,\n            \"success\": true,\n            \"message\": \"\",\n            \"data\": [],\n            \"errors\": {\n                \"error\": \"\"\n            }\n        },\n        \"exception\": null\n    },\n    \"errors\": []\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "availability/host_id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/availability/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"availability",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 08:43:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"success\": true,\n    \"message\": \"Availability fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"weekday\": null,\n            \"start_time\": \"19:37:00\",\n            \"end_time\": \"21:37:00\",\n            \"time_zone\": \"Asia/Qostanay\",\n            \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"updated_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"user_timezone_wise_data\": {\n                \"start_time\": \"14:37:00\",\n                \"end_time\": \"16:37:00\",\n                \"time_zone\": \"UTC\",\n                \"weekday\": \"Monday\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"weekday\": null,\n            \"start_time\": \"21:27:00\",\n            \"end_time\": \"23:27:00\",\n            \"time_zone\": \"Asia/Kabul\",\n            \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"updated_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"user_timezone_wise_data\": {\n                \"start_time\": \"16:57:00\",\n                \"end_time\": \"18:57:00\",\n                \"time_zone\": \"UTC\",\n                \"weekday\": \"Monday\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"weekday\": null,\n            \"start_time\": \"07:12:00\",\n            \"end_time\": \"09:12:00\",\n            \"time_zone\": \"Europe/Berlin\",\n            \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"updated_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"user_timezone_wise_data\": {\n                \"start_time\": \"05:12:00\",\n                \"end_time\": \"07:12:00\",\n                \"time_zone\": \"UTC\",\n                \"weekday\": \"Monday\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"weekday\": null,\n            \"start_time\": \"03:21:00\",\n            \"end_time\": \"05:21:00\",\n            \"time_zone\": \"Asia/Kuching\",\n            \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"updated_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"user_timezone_wise_data\": {\n                \"start_time\": \"19:21:00\",\n                \"end_time\": \"21:21:00\",\n                \"time_zone\": \"UTC\",\n                \"weekday\": \"Sunday\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"weekday\": null,\n            \"start_time\": \"13:28:00\",\n            \"end_time\": \"15:28:00\",\n            \"time_zone\": \"America/Kentucky/Louisville\",\n            \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"updated_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"user_timezone_wise_data\": {\n                \"start_time\": \"17:28:00\",\n                \"end_time\": \"19:28:00\",\n                \"time_zone\": \"UTC\",\n                \"weekday\": \"Monday\"\n            }\n        }\n    ],\n    \"errors\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "appointment",
+			"item": [
+				{
+					"name": "booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{guest_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"1997-07-15\",             // Required, must match format YYYY-MM-DD\r\n  \"avaiability_id\": 3,               // Required, must exist in the 'avaibilities' table by 'id', and must be unique for the given date\r\n  \"notes\": \"This is an optional note.\"  // Optional, must be a string and max 255 characters\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/appointments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"appointments"
+							]
+						},
+						"description": "\n### Add Availability\n\nThis endpoint allows the user to add their availability for a specific weekday and time range.\n\n#### Request Body\n\n- `date` (string): The date for the availability.\n    \n- `avaiability_id` (integer): The ID of the availability.\n    \n- `notes` (string, optional): An optional note for the availability.\n\nExample:\n\n``` json\n{\n    \"date\": \"2025-04-21\",\n    \"avaiability_id\": 1,\n    \"notes\": \"This is an optional note.\"\n}\n```\n\n#### Response\n\n- Status: 201 Created\n    \n- Content-Type: application/json\n    \n\nExample Response Body:\n\n``` json\n{\n    \"code\": 0,\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"date\": \"\",\n        \"avaiability_id\": 0,\n        \"notes\": \"\",\n        \"guest_id\": 0,\n        \"updated_at\": \"\",\n        \"created_at\": \"\",\n        \"id\": 0,\n        \"avaiability\": {\n            \"id\": 0,\n            \"host_id\": 0,\n            \"weekday\": \"\",\n            \"start_time\": \"\",\n            \"end_time\": \"\",\n            \"time_zone\": \"\",\n            \"created_at\": \"\",\n            \"updated_at\": \"\",\n            \"host\": {\n                \"id\": 0,\n                \"name\": \"\",\n                \"email\": \"\",\n                \"role\": \"\",\n                \"email_verified_at\": \"\",\n                \"created_at\": \"\",\n                \"updated_at\": \"\"\n            }\n        },\n        \"guest\": {\n            \"id\": 0,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\",\n            \"email_verified_at\": \"\",\n            \"created_at\": \"\",\n            \"updated_at\": \"\"\n        }\n    },\n    \"errors\": []\n}\n"
+					},
+					"response": [
+						{
+							"name": "booking",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"date\": \"2025-04-21\",             // Required, must match format YYYY-MM-DD\r\n  \"avaiability_id\": 1,               // Required, must exist in the 'avaibilities' table by 'id', and must be unique for the given date\r\n  \"notes\": \"This is an optional note.\"  // Optional, must be a string and max 255 characters\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/appointments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"appointments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 20 Apr 2025 19:17:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"success\": true,\n    \"message\": \"Appointment created successfully\",\n    \"data\": {\n        \"date\": \"2025-04-21\",\n        \"avaiability_id\": 1,\n        \"notes\": \"This is an optional note.\",\n        \"guest_id\": 2,\n        \"updated_at\": \"2025-04-20T19:17:46.000000Z\",\n        \"created_at\": \"2025-04-20T19:17:46.000000Z\",\n        \"id\": 3,\n        \"avaiability\": {\n            \"id\": 1,\n            \"host_id\": 1,\n            \"weekday\": \"Tuesday\",\n            \"start_time\": \"23:09:00\",\n            \"end_time\": \"01:09:00\",\n            \"time_zone\": \"America/Dawson_Creek\",\n            \"created_at\": \"2025-04-20T18:46:56.000000Z\",\n            \"updated_at\": \"2025-04-20T18:46:56.000000Z\",\n            \"host\": {\n                \"id\": 1,\n                \"name\": \"Host User\",\n                \"email\": \"host@example.com\",\n                \"role\": \"host\",\n                \"email_verified_at\": \"2025-04-20T18:46:54.000000Z\",\n                \"created_at\": \"2025-04-20T18:46:54.000000Z\",\n                \"updated_at\": \"2025-04-20T18:46:54.000000Z\"\n            }\n        },\n        \"guest\": {\n            \"id\": 2,\n            \"name\": \"Guest User\",\n            \"email\": \"guest@example.com\",\n            \"role\": \"guest\",\n            \"email_verified_at\": \"2025-04-20T18:46:54.000000Z\",\n            \"created_at\": \"2025-04-20T18:46:54.000000Z\",\n            \"updated_at\": \"2025-04-20T18:46:54.000000Z\"\n        }\n    },\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"search\": \"\",\r\n  \"status\": \"\", \r\n  \"date_from\": \"\",\r\n  \"date_to\": \"\",\r\n  \"host_id\": null,\r\n  \"guest_id\": null                    \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/appointments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"appointments"
+							]
+						},
+						"description": "# Get Appointments\n\nThis endpoint retrieves a list of appointments based on the provided search criteria.\n\n### Request\n\nAn HTTP GET request should be made to `{{base_url}}/appointments`.\n\n#### Request Body\n\n- `search` (string): The search criteria for appointments.\n    \n- `status` (string): The status of the appointments.\n    \n- `date_from` (string): The starting date for the search criteria.\n    \n- `date_to` (string): The ending date for the search criteria.\n    \n- `host_id` (null): The ID of the host for filtering appointments.\n    \n- `guest_id` (null): The ID of the guest for filtering appointments.\n    \n\nExample:\n\n``` json\n{\n    \"search\": \"\",\n    \"status\": \"\",\n    \"date_from\": \"\",\n    \"date_to\": \"\",\n    \"host_id\": null,\n    \"guest_id\": null\n}\n\n ```\n\n### Response\n\n- Status: 200 OK\n    \n- Content-Type: application/json\n    \n\nThe response body follows the JSON schema below:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"code\": {\n            \"type\": \"number\"\n        },\n        \"success\": {\n            \"type\": \"boolean\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"current_page\": {\n                    \"type\": \"number\"\n                },\n                \"data\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"id\": {\n                                \"type\": \"number\"\n                            },\n                            \"guest_id\": {\n                                \"type\": \"number\"\n                            },\n                            \"availability_id\": {\n                                \"type\": \"number\"\n                            },\n                            \"date\": {\n                                \"type\": \"string\"\n                            },\n                            \"status\": {\n                                \"type\": \"string\"\n                            },\n                            \"notes\": {\n                                \"type\": \"string\"\n                            },\n                            \"created_at\": {\n                                \"type\": \"string\"\n                            },\n                            \"updated_at\": {\n                                \"type\": \"string\"\n                            },\n                            \"availability\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"id\": {\n                                        \"type\": \"number\"\n                                    },\n                                    \"host_id\": {\n                                        \"type\": \"number\"\n                                    },\n                                    \"weekday\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"start_time\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"end_time\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"time_zone\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"created_at\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"updated_at\": {\n                                        \"type\": \"string\"\n                                    }\n                                }\n                            },\n                            \"guest\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"id\": {\n                                        \"type\": \"number\"\n                                    },\n                                    \"name\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"email\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"role\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"email_verified_at\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"created_at\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"updated_at\": {\n                                        \"type\": \"string\"\n                                    }\n                                }\n                            }\n                        }\n                    }\n                },\n                \"first_page_url\": {\n                    \"type\": \"string\"\n                },\n                \"from\": {\n                    \"type\": \"number\"\n                },\n                \"last_page\": {\n                    \"type\": \"number\"\n                },\n                \"last_page_url\": {\n                    \"type\": \"string\"\n                },\n                \"links\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"url\": {\n                                \"type\": \"string\"\n                            },\n                            \"label\": {\n                                \"type\": \"string\"\n                            },\n                            \"active\": {\n                                \"type\": \"boolean\"\n                            }\n                        }\n                    }\n                },\n                \"next_page_url\": {\n                    \"type\": \"string\"\n                },\n                \"path\": {\n                    \"type\": \"string\"\n                },\n                \"per_page\": {\n                    \"type\": \"number\"\n                },\n                \"prev_page_url\": {\n                    \"type\": \"string\"\n                },\n                \"to\": {\n                    \"type\": \"number\"\n                },\n                \"total\": {\n                    \"type\": \"number\"\n                }\n            }\n        },\n        \"errors\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"string\"\n            }\n        }\n    }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"search\": \"\",    // Will match date, host name/email, or guest name/email using 'like' queries\r\n  \"status\": \"\",           // Will filter appointments by status\r\n  \"date_from\": \"\",       // Filters for appointments on or after this date\r\n  \"date_to\": \"\",         // Filters for appointments on or before this date\r\n  \"host_id\": null,                    // Will filter appointments where the availability is owned by host with ID 3\r\n  \"guest_id\": null                    // Will filter appointments where the guest ID is 8\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/appointments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"appointments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:42:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"success\": true,\n    \"message\": \"Appointment list\",\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 2,\n                \"guest_id\": 2,\n                \"avaiability_id\": 1,\n                \"date\": \"1990-02-08\",\n                \"status\": \"pending\",\n                \"notes\": \"A voluptatem aut voluptatibus sint beatae autem.\",\n                \"created_at\": \"2025-04-20T19:54:28.000000Z\",\n                \"updated_at\": \"2025-04-20T19:54:28.000000Z\",\n                \"avaiability\": {\n                    \"id\": 1,\n                    \"host_id\": 1,\n                    \"weekday\": \"Monday\",\n                    \"start_time\": \"06:54:00\",\n                    \"end_time\": \"08:54:00\",\n                    \"time_zone\": \"Africa/Asmara\",\n                    \"created_at\": \"2025-04-20T19:54:28.000000Z\",\n                    \"updated_at\": \"2025-04-20T19:54:28.000000Z\"\n                },\n                \"guest\": {\n                    \"id\": 2,\n                    \"name\": \"Guest User\",\n                    \"email\": \"guest@example.com\",\n                    \"role\": \"guest\",\n                    \"email_verified_at\": \"2025-04-20T19:54:28.000000Z\",\n                    \"created_at\": \"2025-04-20T19:54:28.000000Z\",\n                    \"updated_at\": \"2025-04-20T19:54:28.000000Z\"\n                }\n            },\n            {\n                \"id\": 1,\n                \"guest_id\": 2,\n                \"avaiability_id\": 3,\n                \"date\": \"1997-07-15\",\n                \"status\": \"cancelled\",\n                \"notes\": \"Ipsam quia deserunt reprehenderit molestiae ad possimus.\",\n                \"created_at\": \"2025-04-20T19:54:28.000000Z\",\n                \"updated_at\": \"2025-04-20T19:54:28.000000Z\",\n                \"avaiability\": {\n                    \"id\": 3,\n                    \"host_id\": 1,\n                    \"weekday\": \"Wednesday\",\n                    \"start_time\": \"08:33:00\",\n                    \"end_time\": \"10:33:00\",\n                    \"time_zone\": \"America/Cayenne\",\n                    \"created_at\": \"2025-04-20T19:54:28.000000Z\",\n                    \"updated_at\": \"2025-04-20T19:54:28.000000Z\"\n                },\n                \"guest\": {\n                    \"id\": 2,\n                    \"name\": \"Guest User\",\n                    \"email\": \"guest@example.com\",\n                    \"role\": \"guest\",\n                    \"email_verified_at\": \"2025-04-20T19:54:28.000000Z\",\n                    \"created_at\": \"2025-04-20T19:54:28.000000Z\",\n                    \"updated_at\": \"2025-04-20T19:54:28.000000Z\"\n                }\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/v1/appointments?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/v1/appointments?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/appointments?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/v1/appointments\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    },\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "update status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"appointment_id\": 1,\r\n    \"status\":\"cancelled\"  // pending,confirmed,cancelled\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/appointments/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"appointments",
+								"status"
+							]
+						},
+						"description": "### Update Appointment Status\n\nThis endpoint allows the client to update the status of an appointment.\n\n#### Request Body\n\n- `appointment_id` (number) - The ID of the appointment to be updated.\n    \n- `status` (string) - The new status of the appointment.\n    \n\n#### Response\n\nThe response is in JSON format and follows the schema below:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"number\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"number\"\n        },\n        \"guest_id\": {\n          \"type\": \"number\"\n        },\n        \"avaiability_id\": {\n          \"type\": \"number\"\n        },\n        \"date\": {\n          \"type\": \"string\"\n        },\n        \"status\": {\n          \"type\": \"string\"\n        },\n        \"notes\": {\n          \"type\": \"string\"\n        },\n        \"created_at\": {\n          \"type\": \"string\"\n        },\n        \"updated_at\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"errors\": {\n      \"type\": \"array\",\n      \"items\": {}\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "update status",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"appointment_id\": 1,\r\n    \"status\":\"cancelled\"  // pending,confirmed,cancelled\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/appointments/status",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"appointments",
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:47:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"success\": true,\n    \"message\": \"Appointment status updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"guest_id\": 2,\n        \"avaiability_id\": 3,\n        \"date\": \"1997-07-15\",\n        \"status\": \"cancelled\",\n        \"notes\": \"Ipsam quia deserunt reprehenderit molestiae ad possimus.\",\n        \"created_at\": \"2025-04-20T19:54:28.000000Z\",\n        \"updated_at\": \"2025-04-20T19:54:28.000000Z\"\n    },\n    \"errors\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Booking Links",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "",
+									"description": "active,inactive",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/booking-links",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"booking-links"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "",
+											"description": "active,inactive",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/booking-links",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"booking-links"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 05:24:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 202,\n    \"success\": true,\n    \"message\": \"Booking link created successfully\",\n    \"data\": {\n        \"host_id\": 1,\n        \"slug\": \"bbvgknfd7n-1745213094\",\n        \"status\": \"active\",\n        \"updated_at\": \"2025-04-21T05:24:54.000000Z\",\n        \"created_at\": \"2025-04-21T05:24:54.000000Z\",\n        \"id\": 4\n    },\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "public booking links",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{guest_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/booking-links/bbvgknfd7n-1745213094",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"booking-links",
+								"bbvgknfd7n-1745213094"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "public booking links",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/booking-links/bbvgknfd7n-1745213094",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"booking-links",
+										"bbvgknfd7n-1745213094"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 05:28:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"success\": true,\n    \"message\": \"Booking link retrieved successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"host_id\": 1,\n        \"slug\": \"bbvgknfd7n-1745213094\",\n        \"status\": \"active\",\n        \"created_at\": \"2025-04-21T05:24:54.000000Z\",\n        \"updated_at\": \"2025-04-21T05:24:54.000000Z\",\n        \"host\": {\n            \"id\": 1,\n            \"name\": \"Host User\",\n            \"email\": \"host@example.com\",\n            \"role\": \"host\",\n            \"email_verified_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"updated_at\": \"2025-04-21T05:18:13.000000Z\",\n            \"avaiabilities\": [\n                {\n                    \"id\": 2,\n                    \"host_id\": 1,\n                    \"weekday\": \"Saturday\",\n                    \"start_time\": \"21:27:00\",\n                    \"end_time\": \"23:27:00\",\n                    \"time_zone\": \"Asia/Kabul\",\n                    \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n                    \"updated_at\": \"2025-04-21T05:18:13.000000Z\"\n                },\n                {\n                    \"id\": 3,\n                    \"host_id\": 1,\n                    \"weekday\": \"Saturday\",\n                    \"start_time\": \"07:12:00\",\n                    \"end_time\": \"09:12:00\",\n                    \"time_zone\": \"Europe/Berlin\",\n                    \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n                    \"updated_at\": \"2025-04-21T05:18:13.000000Z\"\n                },\n                {\n                    \"id\": 4,\n                    \"host_id\": 1,\n                    \"weekday\": \"Tuesday\",\n                    \"start_time\": \"03:21:00\",\n                    \"end_time\": \"05:21:00\",\n                    \"time_zone\": \"Asia/Kuching\",\n                    \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n                    \"updated_at\": \"2025-04-21T05:18:13.000000Z\"\n                },\n                {\n                    \"id\": 5,\n                    \"host_id\": 1,\n                    \"weekday\": \"Saturday\",\n                    \"start_time\": \"13:28:00\",\n                    \"end_time\": \"15:28:00\",\n                    \"time_zone\": \"America/Kentucky/Louisville\",\n                    \"created_at\": \"2025-04-21T05:18:13.000000Z\",\n                    \"updated_at\": \"2025-04-21T05:18:13.000000Z\"\n                }\n            ]\n        }\n    },\n    \"errors\": []\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
