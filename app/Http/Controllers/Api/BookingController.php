@@ -23,7 +23,7 @@ class BookingController extends Controller
             return sendResponse(
                 'Booking link created successfully',
                 $data,
-                Response::HTTP_ACCEPTED
+                Response::HTTP_CREATED
             );
         } catch (\Exception $exception) {
             return sendError(
