@@ -22,10 +22,11 @@ class AppointmentRequest extends FormRequest
             'avaiability_id' => [
                 'required',
                 'exists:avaiabilities,id',
-                // Rule::unique('appoinments')
-                //     ->where(function ($query) {
-                //         $query->where('date', $this->date);
-                //     })
+                Rule::unique('appoinments')
+                    ->where(function ($query) {
+                        $query->where('date', $this->date)
+                            ->where('status', '!=', 'cancelled');
+                    })
             ],
             'notes' => 'nullable|string|max:255'
         ];

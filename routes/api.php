@@ -4,7 +4,7 @@ use App\Http\Controllers\Api\AppointmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\AvailabilityController;
-
+use App\Http\Controllers\Api\BookingController;
 
 Route::group(['prefix' => 'v1'], function () {
     Route::post('/login', [AuthController::class, 'login']);
@@ -19,10 +19,13 @@ Route::group(['prefix' => 'v1'], function () {
 
             Route::get('/appointments', [AppointmentController::class, 'list']);
             Route::put('/appointments/status', [AppointmentController::class, 'updateStatus']);
+
+            Route::post('/booking-links', [BookingController::class, 'create']);
         });
 
         Route::middleware('guest')->group(function () {
             Route::post('/appointments', [AppointmentController::class, 'create']);
+            Route::get('/booking-links/{slug}', [BookingController::class, 'getBookingLink']);
         });
     });
 });

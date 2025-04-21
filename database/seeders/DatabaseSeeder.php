@@ -23,5 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AppointmentSeeder::class,
         ]);
+        $this->call([
+            BookingLinkSeeder::class,
+        ]);
     }
 }

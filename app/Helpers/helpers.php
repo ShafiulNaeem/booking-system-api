@@ -1,6 +1,7 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 if (!function_exists('sendResponse')) {
     /**
@@ -94,5 +95,16 @@ if (!function_exists('perPage')) {
         }
 
         return $paginate;
+    }
+}
+if (!function_exists('generateSlug')) {
+    /**
+     * @param $string
+     * @return string
+     */
+    function generateSlug()
+    {
+        $string = Str::random(10) . '-' . time();
+        return strtolower($string);
     }
 }

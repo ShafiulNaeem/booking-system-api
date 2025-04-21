@@ -21,12 +21,8 @@ class AuthController extends Controller
             $request['password'] = Hash::make($request['password']);
             $request['remember_token'] = Str::random(10);
             $user = User::create($request->toArray());
-            $token = JWTAuth::fromUser($user);
-            $response = [
-                'token' => $token,
-                'user' => $user,
-            ];
-            return sendResponse('User Register successfully', $response, Response::HTTP_OK);
+
+            return sendResponse('User Register successfully', $user, Response::HTTP_OK);
         } catch (\Exception $exception) {
 
             return sendError(

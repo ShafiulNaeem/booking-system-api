@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRequest;
+use App\Http\Requests\AppointmentStatusRequest;
 use App\Models\User;
 use App\Notifications\AppointmentBooking;
 use App\Service\AppoinmentService;
@@ -47,7 +48,7 @@ class AppointmentController extends Controller
             );
         }
     }
-    public function updateStatus(AppointmentRequest $request)
+    public function updateStatus(AppointmentStatusRequest $request)
     {
         try {
             $data = $this->apointmentService->updateStatus($request);

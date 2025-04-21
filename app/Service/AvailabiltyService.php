@@ -19,7 +19,7 @@ class AvailabiltyService
         $data['host_id'] = $user_id;
 
 
-        // Convert to UTC
+        //Convert to UTC
         $startUtc = Carbon::createFromFormat('H:i', $data['start_time'], $data['time_zone'])->setTimezone('UTC');
         $endUtc = Carbon::createFromFormat('H:i', $data['end_time'], $data['time_zone'])->setTimezone('UTC');
 
