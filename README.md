@@ -1,4 +1,4 @@
-# Product Management Sysytem
+# Booking Sysytem
 
 ## Instruction
 - Install or update all required dependencies using Composer:
