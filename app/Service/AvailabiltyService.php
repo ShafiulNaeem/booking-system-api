@@ -50,6 +50,6 @@ class AvailabiltyService
      */
     public function hostAvailavility($host_id)
     {
-        return Avaiability::where('host_id', $host_id)->get();
+        return Avaiability::with('host')->where('host_id', $host_id)->get();
     }
 }

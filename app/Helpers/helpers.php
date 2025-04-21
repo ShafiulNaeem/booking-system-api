@@ -108,3 +108,4 @@ if (!function_exists('generateSlug')) {
         return strtolower($string);
     }
 }
+

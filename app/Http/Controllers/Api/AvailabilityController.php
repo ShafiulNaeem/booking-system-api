@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AvaiabilityRequest;
+use App\Http\Resources\AvailabilityResource;
 use App\Service\AvailabiltyService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +29,6 @@ class AvailabilityController extends Controller
     public function create(AvaiabilityRequest $request)
     {
         try {
-
             $availability = $this->availabiltyService->create($request);
             return sendResponse(
                 'Availability created successfully',
@@ -56,7 +56,7 @@ class AvailabilityController extends Controller
         $availability = $this->availabiltyService->hostAvailavility($host_id);
         return sendResponse(
             'Availability fetched successfully',
-            $availability,
+            AvailabilityResource::collection($availability),
             Response::HTTP_OK
         );
     }

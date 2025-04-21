@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRequest;
 use App\Http\Requests\AppointmentStatusRequest;
+use App\Http\Resources\AppointmentResource;
 use App\Models\User;
 use App\Notifications\AppointmentBooking;
 use App\Service\AppoinmentService;
@@ -75,7 +76,7 @@ class AppointmentController extends Controller
             $data = $this->apointmentService->list($request->all());
             return sendResponse(
                 'Appointment list',
-                $data,
+                AppointmentResource::collection($data),
                 Response::HTTP_OK
             );
         } catch (\Exception $exception) {

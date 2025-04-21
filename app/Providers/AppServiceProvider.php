@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Service\TimezoneService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
@@ -14,13 +15,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(TimezoneService::class, function ($app) {
+            return new TimezoneService();
+        });
     }
 
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot(Request $request): void
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()->id ?: $request->ip())

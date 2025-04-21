@@ -7,6 +7,7 @@ use App\Http\Requests\BookingRequest;
 use App\Service\BookingService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\BookingLinkResource;
 
 class BookingController extends Controller
 {
@@ -49,7 +50,7 @@ class BookingController extends Controller
             }
             return sendResponse(
                 'Booking link retrieved successfully',
-                $data,
+                new BookingLinkResource($data),
                 Response::HTTP_OK
             );
         } catch (\Exception $exception) {
